@@ -74,7 +74,7 @@ func userJoined(s *discordgo.Session, m *discordgo.PresenceUpdate) {
 		}
 		client := client{id: m.User.ID, nickname: m.User.Username, game: gameName, conTime: time.Now()}
 		addClient(client)
-		telegram.SendToMe(m.User.Username + " connected (dc) playing " + gameName)
+		telegram.Send(m.User.Username + " connected (dc) playing " + gameName)
 	} else if (m.Status == "offline") {
 		client := getClient(m.User.ID)
 		fmt.Println(client)
@@ -82,7 +82,7 @@ func userJoined(s *discordgo.Session, m *discordgo.PresenceUpdate) {
 			duration := time.Since(client.conTime)
 			message := client.nickname + " disconnected " + shortDur(duration)
 
-			telegram.SendToMe(message)
+			telegram.Send(message)
 			removeClient(client)
 		}
 	}
