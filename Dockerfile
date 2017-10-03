@@ -1,7 +1,7 @@
 FROM golang:latest
 RUN mkdir /app
-ADD . /app/
-WORKDIR /app
-RUN go install .
-RUN go build -o main .
-CMD ["/app/main"]
+ADD . /go/src/github.com/sushi86/DCTS3Bot
+WORKDIR /go/src/github.com/sushi86/DCTS3Bot
+RUN go get ./...
+RUN go build -o bot .
+CMD ["/go/src/github.com/sushi86/DCTS3Bot/bot"]
