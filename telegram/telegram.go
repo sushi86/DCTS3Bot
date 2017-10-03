@@ -2,7 +2,7 @@ package telegram
 
 import (
 	"log"
-	"../config"
+	"github.com/sushi86/DCTS3Bot/config"
 
 	telebot "github.com/go-telegram-bot-api/telegram-bot-api"
 )
