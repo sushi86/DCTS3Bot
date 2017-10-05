@@ -125,7 +125,7 @@ func handleSendEvent(bridge chan event) {
 			(client == "Daniel") {
 			telegram.Send(e.client.nickname + " connected (ts3)")
 		}
-		telegram.SendToMe(e.client.nickname + " connected (ts3)")
+		//telegram.SendToMe(e.client.nickname + " connected (ts3)")
 	}
 	if e.status == "disconnect" {
 		nowTime := time.Now()
@@ -139,7 +139,7 @@ func handleSendEvent(bridge chan event) {
 			(client == "Daniel") {
 			telegram.Send(e.client.nickname + " disconnected after " +shortDur(diff))
 		}
-		telegram.SendToMe(e.client.nickname + " disconnected after " +shortDur(diff))
+		//telegram.SendToMe(e.client.nickname + " disconnected after " +shortDur(diff))
 	}
 	handleSendEvent(bridge)
 }

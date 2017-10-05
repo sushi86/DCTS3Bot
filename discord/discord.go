@@ -66,6 +66,9 @@ func ConnectDc() {
 
 func userJoined(s *discordgo.Session, m *discordgo.PresenceUpdate) {
 	if (m.Status == "online") {
+		if m.User.Username == "" {
+			return
+		}
 		gameName := ""
 		if (m.Game == nil) {
 			gameName = "nix"
